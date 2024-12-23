@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+#scene-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loading-content {
+    text-align: center;
+    color: white;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 20px;
+    background-color: #1a1a4a;
+    border-radius: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background-color: #4a4a8a;
+    transition: width 0.3s ease;
+}
+
+/* UI Container */
+#ui-container {
+    position: fixed;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+/* Controls Panel */
+.controls-panel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    pointer-events: auto;
+}
+
+.control-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s;
+}
+
+.control-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.audio-controls, .camera-controls, .weather-controls {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+#volume-slider {
+    width: 100px;
+    margin: 0 10px;
+}
+
+/* Mini-map */
+.mini-map {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    pointer-events: auto;
+}
+
+#mini-map-canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.map-marker {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+}
+
+/* Info Panel */
+.info-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    pointer-events: auto;
+}
+
+.weather-info {
+    margin-bottom: 10px;
+}
+
+.weather-info span {
+    display: block;
+    margin: 5px 0;
+}
+
+/* Tooltip */
+.tooltip {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none;
+    display: none;
+    z-index: 1000;
+}
+
+/* Performance Stats */
+#performance-stats {
+    position: absolute;
+    top: 0;
+    left: 0;
+} 

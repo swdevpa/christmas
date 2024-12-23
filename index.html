@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Village</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+        }
+        #scene-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            color: white;
+        }
+        .progress-container {
+            width: 200px;
+            height: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .progress {
+            width: 0%;
+            height: 100%;
+            background-color: #4CAF50;
+            transition: width 0.3s ease-in-out;
+        }
+        #controls-info {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 100;
+        }
+        #performance-stats {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        #initial-loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="initial-loading">
+        <h1>Christmas Village</h1>
+        <p>Loading resources...</p>
+    </div>
+
+    <div id="scene-container"></div>
+    
+    <div id="loading-screen">
+        <h2>Initializing Christmas Village...</h2>
+        <div class="progress-container">
+            <div class="progress"></div>
+        </div>
+    </div>
+
+    <div id="controls-info">
+        Controls: Left mouse button to rotate, Right mouse button to pan, Mouse wheel to zoom
+    </div>
+    
+    <div id="performance-stats"></div>
+
+    <script>
+        // Verstecke den initialen Ladebildschirm, sobald die Basis-Ressourcen geladen sind
+        window.addEventListener('load', () => {
+            const initialLoading = document.getElementById('initial-loading');
+            initialLoading.style.display = 'none';
+        });
+    </script>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/",
+                "@tweenjs/tween.js": "https://unpkg.com/@tweenjs/tween.js@21.0.0/dist/tween.esm.js"
+            }
+        }
+    </script>
+    <script type="module" src="main.js"></script>
+</body>
+</html> 
